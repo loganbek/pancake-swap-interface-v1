@@ -10,6 +10,8 @@ import useAuth from 'hooks/useAuth'
 import links from './config'
 import { CAKE } from '../../constants'
 
+
+
 const Menu: React.FC = (props) => {
   const { account } = useWeb3React()
   const { login, logout } = useAuth()

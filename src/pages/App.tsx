@@ -3,7 +3,7 @@ import { HashRouter, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import { Credentials, StringTranslations } from '@crowdin/crowdin-api-client'
 import { LangType } from '@pancakeswap-libs/uikit'
-import VersionBar from 'components/VersionBar'
+/* import VersionBar from 'components/VersionBar' */
 import Popups from '../components/Popups'
 import Web3ReactManager from '../components/Web3ReactManager'
 import { RedirectDuplicateTokenIds, RedirectOldAddLiquidityPathStructure } from './AddLiquidity/redirects'
@@ -77,15 +77,18 @@ export default function App() {
   }
 
   useEffect(() => {
+    /* Addition: set language to English */
+    setSelectedLanguage(EN)
+/* Remove language choice
     const storedLangCode = localStorage.getItem(CACHE_KEY)
     if (storedLangCode) {
       const storedLang = getStoredLang(storedLangCode)
       setSelectedLanguage(storedLang)
     } else {
       setSelectedLanguage(EN)
-    }
+    } */
   }, [])
-
+/* Remove language select part 2
   const fetchTranslationsForSelectedLanguage = async () => {
     stringTranslationsApi
       .listLanguageTranslations(projectId, selectedLanguage.code, undefined, fileId, 200)
@@ -109,7 +112,7 @@ export default function App() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedLanguage])
-
+*/
   const handleLanguageSelect = (langObject: LangType) => {
     setSelectedLanguage(langObject)
     localStorage.setItem(CACHE_KEY, langObject.code)
@@ -152,7 +155,7 @@ export default function App() {
                   </Web3ReactManager>
                 </BodyWrapper>
               </Menu>
-              <VersionBar />
+            {/*  <VersionBar /> */}
             </TranslationsContext.Provider>
           </LanguageContext.Provider>
         </AppWrapper>
